@@ -4,7 +4,7 @@ from telethon.tl.functions.channels import JoinChannelRequest, LeaveChannelReque
 from .. import loader
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(name)
 
 @loader.tds
 class yg_actxrocketModule(loader.Module):
