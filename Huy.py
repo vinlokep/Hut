@@ -1,11 +1,10 @@
-# meta developer: @SpecialAgentTT4
 import asyncio
 import re
 from telethon.tl.functions.channels import JoinChannelRequest, LeaveChannelRequest
 from .. import loader
 import logging
 
-logger = logging.getLogger(name)
+logger = logging.getLogger(__name__)
 
 @loader.tds
 class yg_actxrocketModule(loader.Module):
@@ -41,10 +40,10 @@ class yg_actxrocketModule(loader.Module):
                         url = button.url
                         if url.startswith('https://t.me/'):
                             channel_username = url.split('https://t.me/')[1]
-                            await self.client(JoinChannelRequest(channel_username))
+                            await message.client(JoinChannelRequest(channel_username))
                             if self.unsubscribe_enabled:
                                 await asyncio.sleep(5)
-                                await self.client(LeaveChannelRequest(channel_username))
+                                await message.client(LeaveChannelRequest(channel_username))
 
         if message.reply_markup and message.reply_markup.rows:
             for row in message.reply_markup.rows:
